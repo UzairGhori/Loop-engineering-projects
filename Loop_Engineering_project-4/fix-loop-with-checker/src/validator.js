@@ -1,7 +1,11 @@
 // Email validator - has a bug!
 function isValidEmail(email) {
-  // BUG: yeh sirf "@" check karta hai, poori validation nahi
-  return email.includes("@");
+  const parts = email.split("@");
+  if (parts.length !== 2) return false;
+  const [local, domain] = parts;
+  if (!local || !domain) return false;
+  if (!domain.includes('.')) return false;
+  return true;
 }
 
 module.exports = { isValidEmail };
