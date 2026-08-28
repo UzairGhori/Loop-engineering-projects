@@ -1,7 +1,5 @@
-// Email validator - has a bug!
 function isValidEmail(email) {
-  // BUG: yeh sirf "@" check karta hai, poori validation nahi
-  return email.includes("@");
+  return typeof email === "string" && /^[^\s@]+@[^\s@]+$/.test(email);
 }
 
 module.exports = { isValidEmail };
